@@ -2,6 +2,7 @@ services:
 - type: web
   name: hasura
   env: docker
+  region: virginia
   autoDeploy: false
   healthCheckPath: /healthz
   envVars:
@@ -13,10 +14,9 @@ services:
     value: true
   - key: PORT
     value: 10000
-# Uncomment to automatically generate an admin secret
-# for your Hasura instance. The value is visible under
-# Environment on the Render dashboard.
-#  - key: HASURA_GRAPHQL_ADMIN_SECRET
-#    generateValue: true
+  - key: HASURA_GRAPHQL_ADMIN_SECRET
+    generateValue: true
+
 databases:
 - name: hasura-metadata
+  region: virginia
